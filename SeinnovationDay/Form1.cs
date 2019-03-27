@@ -15,6 +15,7 @@ namespace SeinnovationDay
     public partial class Form1 : Form
     {
         static HttpClient client = new HttpClient();
+        private int counter = 15;
         public Form1()
         {
             InitializeComponent();
@@ -44,6 +45,7 @@ namespace SeinnovationDay
             webBrowser1.Hide();
             btnCloseKeyboard.Hide();
             button3.Hide();
+            lblPleaseWait.Hide();
         }
 
         private void TextBox2_LostFocus(object sender, EventArgs e)
@@ -75,13 +77,17 @@ namespace SeinnovationDay
                     button3.Show();
                     textBox2.Text = "";
                     lblInput.Text = "";
-                    
+                    lblUniqueCode.Text = text;
                     webBrowser1.Show();
                     webBrowser1.Navigate("https://seinnovationday.co.id/checkin/data?unique_code=" + text);
                     webprint.Navigate("https://seinnovationday.co.id/checkin/printdata?unique_code=" + text);
                 }
                 else
                 {
+                    textBox2.Text = "";
+                    lblInput.Text = "";
+                    lblUniqueCode.Text = "";
+                    textBox2.Focus();
                     MessageBox.Show("Data Not Found! Please enter the valid unique Code");
                 }
             }
@@ -172,32 +178,39 @@ namespace SeinnovationDay
 
         public async Task<Boolean> Check(string unique_code)
         {
-            using (var Client = new HttpClient())
+            try
             {
-                Client.BaseAddress = new Uri(string.Format("https://seinnovationday.co.id/checkin/check?unique_code={0}", unique_code));
-                Client.DefaultRequestHeaders.Accept.Clear();
-                Client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+                using (var Client = new HttpClient())
+                {
+                    Client.BaseAddress = new Uri(string.Format("https://seinnovationday.co.id/checkin/check?unique_code={0}", unique_code));
+                    Client.DefaultRequestHeaders.Accept.Clear();
+                    Client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
-                HttpResponseMessage responce = await Client.GetAsync("");
-                if (responce.IsSuccessStatusCode)
-                {
-                    var Json = await responce.Content.ReadAsStringAsync();
-                    var status = JsonConvert.DeserializeObject<Result>(Json);
-                    
-                    return status.status;
+                    HttpResponseMessage responce = await Client.GetAsync("");
+                    if (responce.IsSuccessStatusCode)
+                    {
+                        var Json = await responce.Content.ReadAsStringAsync();
+                        var status = JsonConvert.DeserializeObject<Result>(Json);
+
+                        return status.status;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
-                else
-                {
-                    return false;
-                }
-            }  
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Connection Error!");
+            }
+            return false;
         }
 
         public async Task<Boolean> CheckIn(string unique_code)
         {
             using (var Client = new HttpClient())
             {
-                Client.BaseAddress = new Uri(string.Format("https://seinnovationday.co.id/checkin/in?unique_code={0}", unique_code));
+                Client.BaseAddress = new Uri(string.Format("https://seinnovationday.co.id/checkin/submit?unique_code={0}", unique_code));
                 Client.DefaultRequestHeaders.Accept.Clear();
                 Client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -225,12 +238,56 @@ namespace SeinnovationDay
             btnCloseKeyboard.Hide();
             button2.Show();
             button3.Hide();
+            lblPleaseWait.Hide();
+            lblUniqueCode.Text = "";
+            textBox2.Focus();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
-            webprint.Print();
+            if(lblUniqueCode.Text == "")
+            {
+                MessageBox.Show("Please re-enter your unique code");
+            }
+            else
+            {
+                if (await CheckIn(lblUniqueCode.Text)){
+                    lblPleaseWait.Show();
+                    //webprint.Print();
+                    lblInput.Text = "";
+                    textBox2.Text = "";
+                    timer2.Interval = 1000;
+                    timer2.Start();
+                }
+            }
+            
+        }
 
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            counter--;
+            if(counter > 10)
+            {
+                lblPleaseWait.Text = "Printing...";
+            }
+            else
+            {
+                lblPleaseWait.Text = "Please wait...";
+            }
+            if(counter == 0)
+            {
+                timer2.Stop();
+                lblPleaseWait.Hide();
+                textBox2.LostFocus += TextBox2_LostFocus;
+                panel2.Hide();
+                button1.Hide();
+                webBrowser1.Hide();
+                btnCloseKeyboard.Hide();
+                button2.Show();
+                button3.Hide();
+                lblUniqueCode.Text = "";
+                counter = 15;
+            }
         }
     }
 }
