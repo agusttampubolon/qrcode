@@ -57,8 +57,10 @@
             this.webprint = new System.Windows.Forms.WebBrowser();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer1
@@ -68,7 +70,7 @@
             // textBox2
             // 
             this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.textBox2.Location = new System.Drawing.Point(271, 590);
+            this.textBox2.Location = new System.Drawing.Point(271, 614);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(297, 31);
             this.textBox2.TabIndex = 1;
@@ -79,7 +81,7 @@
             // 
             this.webBrowser1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.webBrowser1.IsWebBrowserContextMenuEnabled = false;
-            this.webBrowser1.Location = new System.Drawing.Point(180, 141);
+            this.webBrowser1.Location = new System.Drawing.Point(34, 147);
             this.webBrowser1.Margin = new System.Windows.Forms.Padding(0);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
@@ -94,17 +96,14 @@
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.lblUniqueCode);
-            this.panel1.Controls.Add(this.lblPleaseWait);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.btnCloseKeyboard);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.webBrowser1);
+            this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Location = new System.Drawing.Point(0, 759);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(835, 720);
+            this.panel1.Size = new System.Drawing.Size(835, 744);
             this.panel1.TabIndex = 3;
             // 
             // lblUniqueCode
@@ -122,7 +121,8 @@
             this.lblPleaseWait.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblPleaseWait.BackColor = System.Drawing.Color.White;
             this.lblPleaseWait.Font = new System.Drawing.Font("Calibri", 16.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPleaseWait.Location = new System.Drawing.Point(180, 339);
+            this.lblPleaseWait.ForeColor = System.Drawing.Color.Black;
+            this.lblPleaseWait.Location = new System.Drawing.Point(34, 345);
             this.lblPleaseWait.Name = "lblPleaseWait";
             this.lblPleaseWait.Size = new System.Drawing.Size(489, 53);
             this.lblPleaseWait.TabIndex = 14;
@@ -147,9 +147,9 @@
             this.panel2.Controls.Add(this.btn2);
             this.panel2.Controls.Add(this.btn1);
             this.panel2.Controls.Add(this.btn7);
-            this.panel2.Location = new System.Drawing.Point(180, 0);
+            this.panel2.Location = new System.Drawing.Point(34, 21);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(492, 583);
+            this.panel2.Size = new System.Drawing.Size(492, 588);
             this.panel2.TabIndex = 4;
             this.panel2.Visible = false;
             // 
@@ -157,7 +157,7 @@
             // 
             this.lblInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInput.ForeColor = System.Drawing.Color.White;
-            this.lblInput.Location = new System.Drawing.Point(115, 12);
+            this.lblInput.Location = new System.Drawing.Point(115, 27);
             this.lblInput.Name = "lblInput";
             this.lblInput.Size = new System.Drawing.Size(367, 53);
             this.lblInput.TabIndex = 4;
@@ -167,7 +167,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(6, 12);
+            this.label1.Location = new System.Drawing.Point(6, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(112, 55);
             this.label1.TabIndex = 12;
@@ -180,7 +180,7 @@
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(8, 457);
+            this.btnClear.Location = new System.Drawing.Point(8, 464);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(154, 121);
             this.btnClear.TabIndex = 11;
@@ -196,7 +196,7 @@
             this.btn0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn0.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn0.ForeColor = System.Drawing.Color.White;
-            this.btn0.Location = new System.Drawing.Point(168, 457);
+            this.btn0.Location = new System.Drawing.Point(168, 464);
             this.btn0.Name = "btn0";
             this.btn0.Size = new System.Drawing.Size(154, 121);
             this.btn0.TabIndex = 10;
@@ -212,7 +212,7 @@
             this.btn9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn9.ForeColor = System.Drawing.Color.White;
-            this.btn9.Location = new System.Drawing.Point(328, 75);
+            this.btn9.Location = new System.Drawing.Point(328, 89);
             this.btn9.Name = "btn9";
             this.btn9.Size = new System.Drawing.Size(154, 121);
             this.btn9.TabIndex = 9;
@@ -228,7 +228,7 @@
             this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOK.ForeColor = System.Drawing.Color.White;
-            this.btnOK.Location = new System.Drawing.Point(328, 457);
+            this.btnOK.Location = new System.Drawing.Point(328, 464);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(154, 121);
             this.btnOK.TabIndex = 0;
@@ -244,7 +244,7 @@
             this.btn5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn5.ForeColor = System.Drawing.Color.White;
-            this.btn5.Location = new System.Drawing.Point(168, 203);
+            this.btn5.Location = new System.Drawing.Point(168, 215);
             this.btn5.Name = "btn5";
             this.btn5.Size = new System.Drawing.Size(154, 121);
             this.btn5.TabIndex = 5;
@@ -260,7 +260,7 @@
             this.btn6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn6.ForeColor = System.Drawing.Color.White;
-            this.btn6.Location = new System.Drawing.Point(328, 202);
+            this.btn6.Location = new System.Drawing.Point(328, 214);
             this.btn6.Name = "btn6";
             this.btn6.Size = new System.Drawing.Size(154, 121);
             this.btn6.TabIndex = 6;
@@ -276,7 +276,7 @@
             this.btn4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn4.ForeColor = System.Drawing.Color.White;
-            this.btn4.Location = new System.Drawing.Point(8, 203);
+            this.btn4.Location = new System.Drawing.Point(8, 215);
             this.btn4.Name = "btn4";
             this.btn4.Size = new System.Drawing.Size(154, 121);
             this.btn4.TabIndex = 4;
@@ -292,7 +292,7 @@
             this.btn3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn3.ForeColor = System.Drawing.Color.White;
-            this.btn3.Location = new System.Drawing.Point(328, 329);
+            this.btn3.Location = new System.Drawing.Point(328, 339);
             this.btn3.Name = "btn3";
             this.btn3.Size = new System.Drawing.Size(154, 121);
             this.btn3.TabIndex = 3;
@@ -308,7 +308,7 @@
             this.btn8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn8.ForeColor = System.Drawing.Color.White;
-            this.btn8.Location = new System.Drawing.Point(168, 75);
+            this.btn8.Location = new System.Drawing.Point(168, 89);
             this.btn8.Name = "btn8";
             this.btn8.Size = new System.Drawing.Size(154, 122);
             this.btn8.TabIndex = 8;
@@ -324,7 +324,7 @@
             this.btn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn2.ForeColor = System.Drawing.Color.White;
-            this.btn2.Location = new System.Drawing.Point(168, 330);
+            this.btn2.Location = new System.Drawing.Point(168, 341);
             this.btn2.Name = "btn2";
             this.btn2.Size = new System.Drawing.Size(154, 121);
             this.btn2.TabIndex = 2;
@@ -340,7 +340,7 @@
             this.btn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn1.ForeColor = System.Drawing.Color.White;
-            this.btn1.Location = new System.Drawing.Point(8, 330);
+            this.btn1.Location = new System.Drawing.Point(8, 340);
             this.btn1.Name = "btn1";
             this.btn1.Size = new System.Drawing.Size(154, 121);
             this.btn1.TabIndex = 1;
@@ -356,7 +356,7 @@
             this.btn7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn7.ForeColor = System.Drawing.Color.White;
-            this.btn7.Location = new System.Drawing.Point(8, 75);
+            this.btn7.Location = new System.Drawing.Point(8, 89);
             this.btn7.Name = "btn7";
             this.btn7.Size = new System.Drawing.Size(154, 122);
             this.btn7.TabIndex = 7;
@@ -369,7 +369,8 @@
             // 
             this.button3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(552, 80);
+            this.button3.ForeColor = System.Drawing.Color.Black;
+            this.button3.Location = new System.Drawing.Point(406, 86);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(120, 53);
             this.button3.TabIndex = 13;
@@ -385,7 +386,7 @@
             this.btnCloseKeyboard.FlatAppearance.BorderSize = 0;
             this.btnCloseKeyboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCloseKeyboard.ForeColor = System.Drawing.Color.White;
-            this.btnCloseKeyboard.Location = new System.Drawing.Point(214, 634);
+            this.btnCloseKeyboard.Location = new System.Drawing.Point(214, 661);
             this.btnCloseKeyboard.Name = "btnCloseKeyboard";
             this.btnCloseKeyboard.Size = new System.Drawing.Size(417, 83);
             this.btnCloseKeyboard.TabIndex = 5;
@@ -402,7 +403,7 @@
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(214, 634);
+            this.button2.Location = new System.Drawing.Point(214, 658);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(417, 83);
             this.button2.TabIndex = 4;
@@ -417,7 +418,7 @@
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.LimeGreen;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(214, 634);
+            this.button1.Location = new System.Drawing.Point(214, 658);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(417, 83);
             this.button1.TabIndex = 3;
@@ -440,10 +441,25 @@
             // 
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lblPleaseWait);
+            this.groupBox1.Controls.Add(this.panel2);
+            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.webBrowser1);
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(146, 2);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(551, 626);
+            this.groupBox1.TabIndex = 16;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Scan your QR Code";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::SeinnovationDay.Properties.Resources.bg_app;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(835, 1541);
             this.ControlBox = false;
@@ -460,6 +476,7 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -493,6 +510,7 @@
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Label lblPleaseWait;
         private System.Windows.Forms.Label lblUniqueCode;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
 
